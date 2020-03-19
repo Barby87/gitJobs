@@ -24,7 +24,7 @@ const newUser = async (data) => {
         if(resp.data) {
             //data exist
             if(resp.data.length !== 0 ) { //vanilla JS
-                window.location.href = '/';
+                window.location.href = '/usuarios';
                 
             }
         }
@@ -35,6 +35,13 @@ const newUser = async (data) => {
 
 // Desafío 1 ->
 const getUsers = async () => {
+    try {
+        const resp = await axios.get(`${base_url}/users/`);
+        const users = resp.data;
+
+    } catch (e) {
+        console.error(e);
+    }
 };
 
 getUsers();

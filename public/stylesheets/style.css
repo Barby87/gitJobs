@@ -1,10 +1,27 @@
 body {
+  margin:0;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  position: relative;
 }
 
 a {
   color: #00B7FF;
+}
+
+.jobs_header {
+  background-color: #2B7FC3;
+}
+.fa-github {
+  font-size: 3em;
+}
+
+.footer__list {
+  list-style: none;
+}
+
+footer {
+  padding: 4.5em 0;
 }
 
 #list-users {

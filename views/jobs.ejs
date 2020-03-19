@@ -5,9 +5,14 @@
   <title><%= title %></title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <link rel="stylesheet" type="text/css" href="/dist/semantic.min.css">
+  <!-- Font Awesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
   <!-- Bootstrap-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!--Sweet Alert-->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <!--jQuery-->
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="/dist/semantic.min.js"></script>
@@ -16,14 +21,13 @@
 </head>
 
 <body>
-    
-  <header>
-    <h1 class="text-center">Bienvenido a Github Empleos</h1>
+  <header class="jobs_header text-white p-4 mb-5">
+    <h1 class="text-center">Bienvenido a Git<strong>Jobs</strong></h1>
   </header>
-  
-  <section>
+
+  <section class="container">
     <div class="row">
-      <div class="col-sm col-md-3">
+      <div class="col-12 mb-5 pb-5">
         <form>
           <div class="card">
             <div class="card-header">
@@ -34,7 +38,8 @@
                 <div class="row">
                   <label class="col-md-4">Descripción</label>
                   <div class="col-md-8">
-                    <input type="text" class="form-control" id="description">
+                    <input type="text" class="form-control" id="description"
+                      placeholder="Empleo, experiencia, compañía...">
                   </div>
                 </div>
               </div>
@@ -42,12 +47,12 @@
                 <div class="row">
                   <label class="col-md-4">Ubicación</label>
                   <div class="col-md-2">
-                    <input class="form-check-input" type="checkbox" name="description" id="checkLocation">
+                    <input class="form-check-input" type="checkbox" name="description" id="checkLocation"
+                      placeholder="ciudad o estado">
                   </div>
                   <div class="col-md-6">
                     <input type="text" class="form-control" readonly id="location">
                   </div>
-
                 </div>
               </div>
               <div class="form-group">
@@ -63,29 +68,56 @@
                   </div>
                 </div>
               </div>
-
             </div>
-            <div class="card-footer">
-              <button id="btnConsultar" type="button" class="btn btn-primary btn-block"> Consultar</button>
+            <div class="card-footer d-flex justify-content-around">
+              <button class="text-white btn btn-dark font-weight-bold p-3" id="volver"><i
+                  class="fas fa-angle-double-left"></i> Volver</button>
+              <button id="btnConsultar" type="button" class="btn btn-info font-weight-bold p-3"> Consultar</button>
             </div>
           </div>
         </form>
       </div>
 
-      <div class="col-sm col-md-9">
-        <h4>Resultados</h4>
+      <main class="col-12">
         <div class="row">
-          <div class="container-fluid">
-            <table class="table table-borderless">
+          <div class="container">
+            <table class="table">
               <tbody id="result">
               </tbody>
             </table>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </section>
 
+  <footer class="bg-dark">
+    <div class="container d-flex justify-content-between">
+      <div>
+        <ul class="footer__list">
+          <li>
+            <a class="text-white" href="">Blog</a>
+          </li>
+          <li class="pt-2">
+            <a class="text-white" href="">Contacto</a>
+          </li>
+          <li class="pt-2">
+            <a class="text-white" href="">Política de uso</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div>
+        <i class="fab fa-github text-white"></i>
+      </div>
+
+      <div>
+        <p class="text-white pt-4">© 2020 Git<strong>Jobs</strong> Inc. All rights reserved</p>>
+      </div>
+    </div>
+  </footer>
+
   <script type="module" src="/actions/jobs.js"></script>
 </body>
+
 </html>

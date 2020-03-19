@@ -2,60 +2,81 @@ let description;
 let location;
 let full_time = true;
 
-async function consultar() {
+// Función que realiza una petición a la api de tres parámetros.
+const consultar = async () => {
   let cors = "https://corsanywhere.herokuapp.com/";
   location = $('#location').val();
 
-  await axios.get(cors + 'https://jobs.github.com/positions.json?description=' + description + '&full_time=' + full_time + '&location=' + location + '')
+  await axios.get(`${cors}https://jobs.github.com/positions.json?description=${description}&full_time=${full_time}&location=${location}`)
   .then(response => {
  
       if (response.data.length > 0) {
         appendResult(response.data);
       } else {
-        alert("No existen empleos para esa zona");
+        // sweet alert
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops! algo anda mal...',
+          text: 'No hubo coincidencias para los criterios ingresados.',
+        });
+
         $("#result").empty();
       }
     })
+
   .catch (e =>{
     // Podemos mostrar los errores en la consola
     console.log(e);
-    alert("Error de red, Vuelva a intentarlo");
-    $("#result").empty();
+    // sweet alert
+    Swal.fire({
+      icon: 'error',
+      title: 'Error de red',
+      text: 'Por favor, vuelva a intentarlo.',
+    });    $("#result").empty();
+      });
+    };
 
-  });
-}
-
-function appendResult(result) {
-  var data = "";
+// Función para agregar el contenido de la búsqueda al div con id 'result'
+const appendResult = (result) => {
+  let data = '';
 
   result.map(item => {
     data +=
-      "<tr>" +
-      "<td>" +
-      "<h3>" +
-      item.title +
-      "</h3>" +
-      "</td>" +
-      "<td>" +
-      item.description +
-      "</td>" +
-      "</tr>";
+      `
+      <tr>
+        <td><h2 class="font-weight-bold pt-5">${item.title}</h2>
+        </td>
+      </tr>
+
+      <tr class="table-info">
+        <td class="text-justify">${item.description}</td>
+      </tr>
+      `;
   });
-  $("#result").empty();
+  
+  $('#result').empty();
 
-  $("#result").append(data);
-}
+  $('#result').append(
+    `
+    <tr class="bg-info mb-3">
+      <td><h3 class="text-white text-center font-weight-bold">Resultado</h3></td>
+    </tr>
+    `
+  );
 
-$("#btnConsultar").click(function() {
+  $('#result').append(data);
+};
+
+$('#btnConsultar').click(function() {
   consultar();
 });
 
-$("#description").keyup(function() {
+$('#description').keyup(function() {
   description = $(this).val();
 });
 
 //Verifico si el tipo de trabajo es full time o de medio tiempo
-$(".timeJob").change(function() {
+$('.timeJob').change(function() {
   switch ($(this).val()) {
     case "1":
       full_time = true;
@@ -69,14 +90,18 @@ $(".timeJob").change(function() {
 });
 
 //Obtengo la ubicación
-$("#checkLocation").click(function() {
-  if ($(this).prop("checked")) {
+$('#checkLocation').click(function() {
+  if ($(this).prop('checked')) {
     // Si el checkbox está chequeado, se remueve el atributo de sólo lectura del input
-    $("#location").removeAttr("readonly");
+    $('#location').removeAttr('readonly');
   } else {
-    $("#location").attr("readonly", "readonly");
-    $("#location").val("");
+    $('#location').attr('readonly', 'readonly');
+    $('#location').val('');
   }
 });
 
+// Volver a la página anterior
+$('#volver').click(()=>{
+  window.history.back();
+});
 

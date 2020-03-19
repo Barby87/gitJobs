@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+     <!-- jQuery-->
+     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/dist/semantic.min.css" />
+    <script src="/dist/semantic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
+    
+     <script type="module" src="/actions/usuarios.js"></script>
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+</head>
+
+<body>
+    <section class="container">
+        <div class="p-5">
+            <h2 class="text-center font-weight-bold">Usuarios registrados</h2>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Fecha de ingreso</th>
+                </tr>
+            </thead>
+    
+            <tbody id="userList">
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-center pt-4">
+            <a class="btn btn-dark mr-4 p-3 font-weight-bold" href="http://localhost:3000/algo">Ver algo</a>
+            <a class="btn btn-info p-3 font-weight-bold" href="http://localhost:3000/jobs">Ver trabajos</a>    
+        </div>
+        
+    </section>
+    
+    <!-- jQuery-->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script type="module" src="/actions/usuarios.js"></script>
+        
+</body>
+
+</html>
