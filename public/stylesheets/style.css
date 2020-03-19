@@ -12,6 +12,13 @@ a {
 .jobs_header {
   background-color: #2B7FC3;
 }
+
+.fixed-bottom {
+  box-shadow: 2px 2px 3px rgb(138, 136, 136);
+  left: 90%!important;
+  bottom: 12%!important;
+}
+
 .fa-github {
   font-size: 3em;
 }

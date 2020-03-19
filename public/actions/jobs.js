@@ -65,6 +65,16 @@ const appendResult = (result) => {
   );
 
   $('#result').append(data);
+
+  // Se agrega botón para subir 
+  $('#section__container').append(`<button class="btn btn-light rounded-circle fixed-bottom py-3 px-4" id="scrollUp"><i class="fas fa-angle-double-up fa-2x"></i></button>`);
+
+  // Animación para botón subir
+  $('#scrollUp').click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 600);
+    return false;
+  });
+
 };
 
 $('#btnConsultar').click(function() {
