@@ -44,12 +44,12 @@ const appendResult = (result) => {
     data +=
       `
       <tr>
-        <td><h2 class="font-weight-bold pt-5">${item.title}</h2>
+        <td class="pl-5"><h3 class="font-weight-bold pt-5">${item.title}</h3>
         </td>
       </tr>
 
       <tr class="table-info">
-        <td class="text-justify">${item.description}</td>
+        <td class="text-justify p-5">${item.description}</td>
       </tr>
       `;
   });
@@ -58,8 +58,8 @@ const appendResult = (result) => {
 
   $('#result').append(
     `
-    <tr class="bg-info mb-3">
-      <td><h3 class="text-white text-center font-weight-bold">Resultado</h3></td>
+    <tr class="table-success mb-3">
+      <td><h2 class="text-center font-weight-bold">Resultado</h2></td>
     </tr>
     `
   );
